@@ -1,2 +1,2 @@
 # Tetris
-https://jasoncantor.github.io/tetris-ai/
+https://jasoncantor.github.io/tetris-AI/
