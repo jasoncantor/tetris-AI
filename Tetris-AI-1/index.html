@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI learns to play Tetris - Jason Cantor</title>
+  <meta charset="utf-8" />
+
+  <meta name="description" content="Watch an AI play Tetris. You can change all of the scoring parameters yourself, or you can set the best parameters of a generation from a genetic algorithm that produced the AI.">
+
+  <link rel="shortcut icon" href="asset/logo.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script src="grid.js"></script>  
+  <script src="main.js"></script>
+  <script src="piece.js"></script>
+  <script src="player.js"></script>
+  <script src="vec2.js"></script>
+  <script src="ai.js"></script>
+  <script src="population.js"></script>
+  <script src="lib/genetic-0.1.14.min.js"></script>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>
+        <div id="settings">
+          <form>
+            <input type="submit" value="Play Yourself" id="play">
+            <p>Cleared Lines Bottom Weight:</p>
+            <input type="number" min="0" max="20" step="any" id="completedLinesMin">
+            <p>Cleared Lines Top Weight:</p>
+            <input type="number" min="0" max="20" step="any" id="completedLinesMax">
+            <p>Holes Weight:</p>
+            <input type="number" min="0" max="20" step="any" id="holes">
+            <p>Bumpiness Weight:</p>
+            <input type="number" min="0" max="20" step="any" id="bumpiness">
+            <!--<p>Rows w/ Holes Weight:</p>-->
+            <input type="number" min="0" max="20" step="any" id="rowsWithHoles" style="display: none">
+
+            <input type="submit" value="Reset with new Weights" id="resetWeights">
+
+            <input type="range" min="0" max="27" value="0" class="slider" id="generationSlider">
+            <small>Use the slider to see the best AI of a generation (older are generally better)</small>
+            <input type="submit" value="Reset to Generation: 0" id="resetGeneration">
+
+            <label class="container">Show Placement Options
+                <input type="checkbox" id="showPlacements">
+                <span class="checkmark"></span>
+              </label>
+          </form>
+          <script src="https://apis.google.com/js/platform.js"></script>
+
+          
+          <!--<img src="/asset/logo-colored-small.png">-->
+        </div>
+      </td>
+      <td class="game-container">
+        <p>
+          Score: <span id="score">0</span><br />
+        </p>
+        <canvas id="game" width="400" height="800"></canvas>
+        <p>
+          Current Generation: <span id="generation">0</span><br />
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
