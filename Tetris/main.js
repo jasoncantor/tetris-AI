@@ -40,7 +40,7 @@ window.onload = function() {
     score += counter;
     if (counter > 4) {
       score = 0;
-      level++;
+      //level++;
       player.grid = new Grid(canvaa.width / 50, canvas.height / 50);
     }
     if (colliding) {
