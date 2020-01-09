@@ -2,8 +2,8 @@ window.onload = function() {
   const game = document.getElementById('game');
   let score = 0;
   const scoreElt = document.getElementById('score');
-  let level = 1;
-  const levelElt = document.getElementById('level');  
+  //let level = 1;
+  //const levelElt = document.getElementById('level');  
   const context = game.getContext('2d');
   const player = new Player(game);
 
@@ -47,6 +47,6 @@ window.onload = function() {
       score = 0;
     }
     scoreElt.innerHTML = score;
-    levelElt.innerHTML = level;    
+    //levelElt.innerHTML = level;    
   }
 }
