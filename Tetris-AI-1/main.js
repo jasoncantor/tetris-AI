@@ -55,6 +55,8 @@ $(document).ready(function() {
   const game = document.getElementById('game');
   let score = 0;
   const scoreElt = document.getElementById('score');
+  let level = 1;
+  const levelElt = document.getElementById('level');
   const context = game.getContext('2d');
 
   let lastTime = 0;
@@ -206,12 +208,12 @@ $(document).ready(function() {
         player.testMovesDelay = showPlacementsDelay;
       }
       else {
-        player.testMovesDelay = 0;
+        player.testMovesDelay = 10000;
       }
     }
   });
 
-  startAiFromGen(27, update);
+  startAiFromGen(0, update);
 
   function update(time = 0) {
 
@@ -223,6 +225,11 @@ $(document).ready(function() {
     if (!isAi) {
       player.updateTimer(deltaTime, function(counter, colliding) {
         score += counter;
+        if (counter > 4) {
+          score = 0;
+          level++;
+          player.grid = new Grid(canvaa.width / 50, canvas.height / 50);
+        }
         if (colliding) {
           score = 0;
         }
