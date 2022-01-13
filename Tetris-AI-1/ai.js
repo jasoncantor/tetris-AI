@@ -20,10 +20,10 @@ class AI extends Player {
 
         this.moveDelay = 10;
         this.rotateDelay = 5;
-        this.downDelay = 0;
+        this.downDelay = 5;
         this.testMovesDelay = 0;
 
-        this.startReset = false;
+        this.startReset = true;
 
         this.resetCallback;
     }
